@@ -4,10 +4,13 @@ import "../styles/App.css";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isClick: false };
+    this.state = { isClick: null };
   }
   handleClick = () => {
-    this.setState({ isClick: true });
+    this.setState({ isClick: <p id="para">
+            Hello, I've learnt to use the full-stack evaluation tool. This makes
+            me so happy
+          </p> });
   };
 
   render() {
@@ -16,12 +19,7 @@ class App extends Component {
         <button id="click" onClick={this.handleClick}>
           para
         </button>
-        {this.state.isClick === true ? (
-          <p id="para">
-            Hello, I've learnt to use the full-stack evaluation tool. This makes
-            me so happy
-          </p>
-        ) : null}
+        {this.state.isClick}
       </div>
     );
   }
