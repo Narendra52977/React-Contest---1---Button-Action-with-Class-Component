@@ -4,22 +4,27 @@ import "../styles/App.css";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isClick:false };
+    this.state = {
+      view: false
+    };
   }
-  handleClick = () => {
-    this.setState({ isClick: true });
-  };
 
   render() {
+    const handelClick = () => {
+      this.setState({ view: true });
+    };
+
     return (
       <div id="main">
-        <button id="click" onClick={this.handleClick}>
-          para
+        {/* Do not remove this main div!! */}
+        <button id="click" onClick={handelClick}>
+          {this.state.view === true ? (
+            <p id="para">
+              Hello, I've learnt to use the full-stack evaluation tool. This
+              makes me so happy
+            </p>
+          ) : null}
         </button>
-        {this.state.isClick===true?<p id="para">
-            Hello, I've learnt to use the full-stack evaluation tool. This makes
-            me so happy
-          </p>:null}
       </div>
     );
   }
